@@ -117,6 +117,16 @@ Quick one-line definitions of the buzzwords in this repo. Each links to its deep
 | **[Self-RAG](./rag/architectures/self-rag.md)** | RAG that decides when to retrieve and self-critiques. |
 | **[Corrective RAG (CRAG)](./rag/architectures/corrective-rag.md)** | Grade retrieval; fall back to web search if weak. |
 
+## The FDE craft
+
+| Term | One-liner |
+|------|-----------|
+| **[FDE (Forward Deployed Engineer)](./fde/)** | Engineer who embeds with a customer and ships a working AI solution. |
+| **[LLM System Design](./llm-system-design/)** | Combining the concepts into real reference architectures. |
+| **Discovery** | Finding the customer's *real* problem before building. → [FDE](./fde/) |
+| **Scoping / the wedge** | The smallest slice that delivers real value. → [FDE](./fde/) |
+| **POC (proof of concept)** | A fast prototype to validate the approach. → [FDE](./fde/) |
+
 ---
 
-➡️ Back to the **[full map & pillars](./README.md)**.
+➡️ Back to the **[full map & pillars](./README.md)** · start the **[learning path](./README.md#-the-path-to-forward-deployed-engineer)**.
