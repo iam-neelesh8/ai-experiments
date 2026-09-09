@@ -1,45 +1,18 @@
-# Environments
-.venv/
-venv/
-env/
-.env
-.env.*
-
-# Python
-__pycache__/
-*.py[cod]
-*.egg-info/
-.pytest_cache/
-.ipynb_checkpoints/
-
-# Data & model artifacts
-data/
-*.csv
-*.parquet
-*.pkl
-*.pt
-*.bin
-*.gguf
-*.safetensors
-
-# Vector stores / caches
-.chroma/
-chroma_db/
-faiss_index/
-.cache/
-
-# Notebooks
-*.nbconvert.ipynb
-
-# Editors / OS
-.idea/
-.vscode/
+# OS
 .DS_Store
 Thumbs.db
 
-# Logs & runs
-*.log
-runs/
-wandb/
-mlruns/
-outputs/
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# Python (in case notebooks/experiments get added later)
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+
+# Node
+node_modules/

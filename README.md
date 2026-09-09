@@ -1,30 +1,112 @@
-# ai-experiments
+# 🧠 AI Concepts — The Buzzword Atlas
 
-A scratchpad for AI/ML experiments — models, prompts, agents, retrieval, evaluation.
+A structured, diagram-first reference for the AI/LLM terms everyone throws around.
+Every concept lives in its own folder, and each folder goes **deeper and deeper** —
+from the one-line "what is it" down to architectures, trade-offs, and "where it's used".
 
-## Layout
+All diagrams are written in **[Mermaid](https://mermaid.js.org/)**, which GitHub renders
+natively — so you get clear visuals with zero image files to maintain.
 
-Nothing is enforced here. A loose convention that keeps things findable:
+---
+
+## 🗺️ The Map
+
+```mermaid
+mindmap
+  root((AI / LLM Concepts))
+    RAG
+      Chunking
+      Retrieval
+      Embeddings
+      Reranking
+      Architectures
+      Evaluation
+    Fine-tuning
+      Methods -LoRA/QLoRA-
+      Alignment -RLHF/DPO-
+      Data prep
+    Agents
+      Architectures -ReAct-
+      Memory
+      Tools
+      Multi-agent
+    Prompt Engineering
+      Zero/Few-shot
+      Chain-of-Thought
+      Structured output
+    Context Engineering
+      Context window
+      Memory & state
+      Retrieval + tools
+    Agentic Loop
+      Reason -> Act -> Observe
+      Planning & reflection
+```
+
+---
+
+## 📚 The Pillars
+
+| Pillar | One-liner | Go deeper |
+|--------|-----------|-----------|
+| **[RAG](./rag/)** | Give an LLM fresh, private knowledge by retrieving documents at query time. | [chunking](./rag/chunking.md) · [retrieval](./rag/retrieval.md) · [embeddings](./rag/embeddings.md) · [reranking](./rag/reranking.md) · [architectures](./rag/architectures/) · [evaluation](./rag/evaluation.md) |
+| **[Fine-tuning](./fine-tuning/)** | Change the *weights* of a model to teach it new skills, style, or format. | [methods](./fine-tuning/methods.md) · [alignment](./fine-tuning/alignment.md) · [data prep](./fine-tuning/data-preparation.md) |
+| **[Agents](./agents/)** | LLMs that decide, use tools, and act in a loop toward a goal. | [architectures](./agents/architectures.md) · [memory](./agents/memory.md) · [tools](./agents/tools.md) |
+| **[Prompt Engineering](./prompt-engineering/)** | Shaping the *input text* to steer model behavior. | [techniques](./prompt-engineering/README.md) |
+| **[Context Engineering](./context-engineering/)** | Managing *everything* in the context window: prompt + memory + data + tools. | [overview](./context-engineering/README.md) |
+| **[Agentic Loop](./agentic-loop/)** | The reason → act → observe cycle that powers every agent. | [overview](./agentic-loop/README.md) |
+
+---
+
+## 🧭 How these fit together
+
+```mermaid
+flowchart LR
+    U([User goal]) --> CE[Context Engineering<br/>what goes in the window]
+    PE[Prompt Engineering<br/>how you ask] --> CE
+    RAG[RAG<br/>fetch knowledge] --> CE
+    FT[Fine-tuning<br/>bake in skills] --> M[(LLM)]
+    CE --> M
+    M --> AL[Agentic Loop<br/>reason/act/observe]
+    AL -->|calls tools| T[Tools / APIs]
+    AL -->|needs facts| RAG
+    AL --> A[Agents<br/>orchestration]
+    A --> R([Result])
+
+    classDef box fill:#1f6feb22,stroke:#1f6feb,color:#c9d1d9;
+    class CE,PE,RAG,FT,M,AL,A box;
+```
+
+**The mental model:**
+- **Fine-tuning** changes *what the model is*.
+- **RAG** changes *what the model knows right now*.
+- **Prompt / Context engineering** change *what the model sees*.
+- **Agents** + the **agentic loop** change *what the model can do*.
+
+---
+
+## 📂 Repo structure
 
 ```
-experiments/     one folder per experiment, dated or named
-notebooks/       exploratory notebooks
-data/            local data (gitignored)
+.
+├── rag/                    # Retrieval-Augmented Generation (deepest example)
+│   ├── chunking.md
+│   ├── retrieval.md
+│   ├── embeddings.md
+│   ├── reranking.md
+│   ├── evaluation.md
+│   └── architectures/      # naive → advanced → agentic → graph RAG
+├── fine-tuning/
+├── agents/
+├── prompt-engineering/
+├── context-engineering/
+└── agentic-loop/
 ```
 
-## Convention
+## 🤝 Contributing / extending
 
-Each experiment gets its own folder with a short `README.md` answering three
-questions: what was tried, what happened, and whether it is worth pursuing.
-Negative results are worth keeping — they are the cheapest thing in the repo
-and the easiest to forget.
+Each concept folder follows the same pattern:
+1. `README.md` — the overview, a diagram, and links to sub-topics.
+2. One `.md` per sub-topic — going deeper, always with a diagram and a "where it's used" note.
 
-## Setup
-
-```bash
-python -m venv .venv
-.venv\Scripts\activate      # Windows
-pip install -r requirements.txt
-```
-
-Keep API keys in a `.env` file, which is gitignored.
+Add a new buzzword → new folder → same pattern. That's it.
