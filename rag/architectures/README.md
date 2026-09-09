@@ -86,8 +86,8 @@ flowchart TD
     J -- yes --> LLM[(LLM)] --> A([Answer])
 ```
 
-Includes patterns like **Self-RAG** (model critiques its own retrieval/answer) and
-**Corrective RAG / CRAG** (grade retrieved docs; fall back to web search if they're weak).
+Includes patterns like **[Self-RAG](./self-rag.md)** (model critiques its own retrieval/answer) and
+**[Corrective RAG / CRAG](./corrective-rag.md)** (grade retrieved docs; fall back to web search if they're weak).
 
 - ✅ Handles multi-step, multi-source, "research"-style questions; recovers from bad retrieval.
 - ❌ Slower, costlier, harder to make reliable. See the [agentic loop](../../agentic-loop/).

@@ -100,6 +100,23 @@ The pillars above are the deep dives. Here's **every** concept in the repo, grou
 | **[Evaluation](./evaluation/)** | Measuring if a system is good — "the new unit tests." |
 | **[Guardrails](./guardrails/)** | Safety checks on inputs & outputs (incl. prompt injection). |
 | **[Hallucination](./hallucination/)** | Confident, plausible, but false output — and how to fight it. |
+| **[Red-Teaming](./red-teaming/)** | Deliberately attacking your AI to find failures first. |
+| **[Observability / LLMOps](./observability/)** | Tracing, monitoring & evals for live LLM apps. |
+
+### Advanced & niche
+| Concept | One-liner |
+|---------|-----------|
+| **[Synthetic Data](./synthetic-data/)** | Model-generated training/eval data. |
+| **[Constitutional AI / RLAIF](./constitutional-ai/)** | Align using written principles + AI feedback. |
+| **[Model Routing](./model-routing/)** | Send each query to the cheapest model that can handle it. |
+| **[Structured Output](./structured-output/)** | Force valid JSON/schema via constrained decoding. |
+| **[Long Context](./long-context/)** | Huge input windows — and "lost in the middle." |
+| **[Semantic Caching](./semantic-caching/)** | Cache answers by *meaning*, not exact match. |
+| **[Model Merging](./model-merging/)** | Blend fine-tuned models' weights — no training. |
+| **[Mechanistic Interpretability](./mechanistic-interpretability/)** | Reverse-engineer what's happening inside a model. |
+| **[World Models](./world-models/)** | An AI's internal simulation of an environment for planning. |
+| **[Federated Learning](./federated-learning/)** | Train across sources without moving the raw data. |
+| **Advanced RAG** | [Self-RAG](./rag/architectures/self-rag.md) · [Corrective RAG](./rag/architectures/corrective-rag.md) |
 
 ---
 
